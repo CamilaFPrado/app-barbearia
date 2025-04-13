@@ -1,0 +1,52 @@
+/* Estilo para o layout geral da aplicação */
+.app-container {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Estilo para o cabeçalho (header) */
+header {
+  background-color: #4CAF50;  /* Cor de fundo do cabeçalho */
+  color: white;  /* Cor do texto */
+  padding: 10px 20px;
+  text-align: center;
+  border-radius: 5px;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2rem;
+}
+
+/* Estilo para a navegação */
+nav ul {
+  list-style: none;  /* Remove os pontos da lista */
+  padding: 0;
+}
+
+nav ul li {
+  display: inline-block;
+  margin-right: 20px;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.2rem;
+  padding: 8px 15px;
+  border-radius: 4px;
+}
+
+nav ul li a:hover {
+  background-color: #45a049;  /* Muda a cor do botão ao passar o mouse */
+  transition: background-color 0.3s ease;  /* Animação suave de transição */
+}
+
+/* Estilo para o conteúdo principal */
+main {
+  margin-top: 30px;
+}
+

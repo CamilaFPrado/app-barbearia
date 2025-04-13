@@ -1,0 +1,60 @@
+<div class="agendamento-container">
+  <h2>Agendamentos</h2>
+
+  <!-- Formulário de agendamento -->
+  <!-- Formulário de agendamento -->
+  <form (ngSubmit)="saveAgendamento()" [formGroup]="agendamentoForm">
+    <mat-form-field appearance="fill">
+      <mat-label>Cliente</mat-label>
+      <input matInput formControlName="nomeCliente" required />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Data</mat-label>
+      <input matInput formControlName="data" type="datetime-local" required />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Serviço</mat-label>
+      <input matInput formControlName="hora" required />
+    </mat-form-field>
+
+    <div class="actions">
+      <button
+        mat-raised-button
+        color="primary"
+        type="submit"
+        [disabled]="agendamentoForm.invalid"
+      >
+        Agendar
+      </button>
+    </div>
+  </form>
+</div>
+
+<!-- Lista de agendamentos -->
+<div *ngIf="agendamentos && agendamentos.length > 0">
+  <h3>Lista de Agendamentos</h3>
+  <mat-list>
+    <mat-list-item *ngFor="let agendamento of agendamentos">
+      <div class="agendamento-info">
+        <p><strong>Cliente:</strong> {{ agendamento.nomeCliente }}</p>
+        <p><strong>Data:</strong> {{ agendamento.data | date : "short" }}</p>
+        <p><strong>Serviço:</strong> {{ agendamento.hora }}</p>
+      </div>
+      <button mat-icon-button (click)="editAgendamento(agendamento)">
+        <mat-icon>edit</mat-icon>
+      </button>
+      <button
+        mat-icon-button
+        color="warn"
+        (click)="deleteAgendamento(agendamento.id!)"
+      >
+        <mat-icon>delete</mat-icon>
+      </button>
+    </mat-list-item>
+  </mat-list>
+</div>
+<div *ngIf="agendamentos && agendamentos.length === 0">
+  <p>Não há agendamentos registrados.</p>
+</div>

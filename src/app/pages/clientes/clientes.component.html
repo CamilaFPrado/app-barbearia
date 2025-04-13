@@ -1,0 +1,92 @@
+<div class="clientes-container">
+  <h2>Gerenciar Clientes</h2>
+
+  <!-- Formulário de cadastro/edição de cliente -->
+  <div *ngIf="selectedCliente" class="cliente-form-container">
+    <h3>{{ selectedCliente.id ? "Editar Cliente" : "Adicionar Cliente" }}</h3>
+    <form [formGroup]="clienteForm" (ngSubmit)="saveCliente()">
+      <div class="form-group">
+        <label for="nomeCliente">Nome:</label>
+        <input
+          id="nomeCliente"
+          formControlName="nomeCliente"
+          type="text"
+          class="form-control"
+          placeholder="Nome do Cliente"
+          required
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="telefoneCliente">Telefone:</label>
+        <input
+          id="telefoneCliente"
+          formControlName="telefoneCliente"
+          type="text"
+          class="form-control"
+          placeholder="Telefone do Cliente"
+          required
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="emailCliente">E-mail:</label>
+        <input
+          id="emailCliente"
+          formControlName="emailCliente"
+          type="email"
+          class="form-control"
+          placeholder="E-mail do Cliente"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="enderecoCliente">Endereço:</label>
+        <input
+          id="enderecoCliente"
+          formControlName="enderecoCliente"
+          type="text"
+          class="form-control"
+          placeholder="Endereço do Cliente"
+        />
+      </div>
+
+      <button type="submit" class="btn btn-primary">
+        {{ selectedCliente.id ? "Atualizar" : "Salvar" }}
+      </button>
+      <button type="button" class="btn btn-secondary" (click)="resetForm()">
+        Cancelar
+      </button>
+    </form>
+  </div>
+
+  <!-- Lista de clientes -->
+  <div *ngIf="!selectedCliente" class="clientes-lista-container">
+    <h3>Lista de Clientes</h3>
+    <div *ngIf="loading" class="loading-spinner">Carregando...</div>
+    <div *ngIf="!loading && clientes.length === 0" class="no-clientes">
+      Não há clientes cadastrados.
+    </div>
+
+    <ul class="clientes-list">
+      <li *ngFor="let cliente of clientes" class="cliente-item">
+        <div class="cliente-info">
+          <strong>{{ cliente.nome }}</strong> -
+          {{ cliente.telefone }}
+        </div>
+        <div class="cliente-actions">
+          <button (click)="editCliente(cliente)" class="btn btn-warning">
+            Editar
+          </button>
+          <button
+            (click)="deleteCliente(cliente.id)"
+            class="btn btn-danger"
+            *ngIf="cliente.id"
+          >
+            Excluir
+          </button>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>

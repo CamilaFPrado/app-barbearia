@@ -1,1 +1,102 @@
-/* You can add global styles to this file, and also import other style files */
+/* Estilos globais da aplicação */
+
+/* Reset de estilos padrões para uma aparência mais consistente em diferentes navegadores */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Definindo a fonte padrão para a aplicação */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f7fc;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Estilo do header */
+header {
+  background-color: #2c3e50;
+  color: #fff;
+  padding: 10px 20px;
+  text-align: center;
+}
+
+/* Estilo dos links */
+a {
+  text-decoration: none;
+  color: #3498db;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+/* Estilo para botões */
+button {
+  background-color: #3498db;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #2980b9;
+  }
+}
+
+/* Estilo do formulário */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-width: 400px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo para os inputs e selects dentro do formulário */
+input,
+select,
+textarea {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* Estilo para cabeçalhos */
+h1, h2, h3 {
+  color: #2c3e50;
+  font-weight: 600;
+}
+
+/* Ajuste para o layout */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Adicionar regras de responsividade para dispositivos móveis */
+@media screen and (max-width: 768px) {
+  body {
+    font-size: 14px;
+  }
+
+  .container {
+    padding: 10px;
+  }
+
+  header {
+    font-size: 18px;
+  }
+}
